@@ -1,9 +1,11 @@
 <?php
-  $conn = new mysqli('localhost', 'root','', 'e_classe_db');
 
-  if (isset($_GET['del'])) {
-    $id = $_GET['del'];
-    $conn->query("DELETE FROM students WHERE id=$id") or die($conn->error());
-    echo "<script>window.location.replace('students.php')</script>";
+ include_once 'configdata/config.php';
+
+  if(isset($_GET['del'])){
+     $id = $_GET['del'];
+     $sql_obj = mysqli_query($config, "DELETE FROM students WHERE id=$id");
+     header('location:students.php');
   }
+
 ?>

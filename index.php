@@ -88,8 +88,8 @@ function test_input($data) {
                     </div>
                     <form action="index.php" method="POST">
                     <div class=" d-flex flex-column text-muted ">
-                        <label for="" class="col-form-label">E-mail</label>
-                        <input type="email" placeholder="Enter your email" name="email" value="<?php get_cookie('email'); ?>"
+                        <label for="email" class="col-form-label">E-mail</label>
+                        <input  type="email" id="email" placeholder="Enter your email" name="email" value="<?php get_cookie('email'); ?>"
                             class="w-100 rounded-3 border  p-2 bg-transparent form-control">
                     </div>
                     <div class=" d-flex flex-column text-muted mt-3 text">

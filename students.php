@@ -55,12 +55,13 @@
                                     <th scope="col">Phone</th>
                                     <th scope="col">Enroll number</th>
                                     <th scope="col">Date of admission</th>
+                                    <th scope="col">Age</th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
 
                             <tbody>
-                                <?php $results = mysqli_query($config, "SELECT id, name, email, phone, enroll_number, date_of_admission from students order by id DESC;"); 
+                                <?php $results = mysqli_query($config, "SELECT id, name, email, phone, enroll_number, date_of_admission, age from students order by id DESC;"); 
                         while($Students = mysqli_fetch_array($results)) {?>
                                 <tr class=" bg-white  mb-3 align-middle border-5 border-light ">
                                     <td><?php echo $Students['name'] ?></td>
@@ -68,6 +69,7 @@
                                     <td><?php echo $Students['phone'] ?></td>
                                     <td><?php echo $Students['enroll_number'] ?></td>
                                     <td><?php echo $Students['date_of_admission'] ?></td>
+                                    <td><?php echo $Students['age'] ?></td>
                                     
                                     <td class="d-flex fs-4 text-info border-0 text-end">
                                         <a href="editstudents.php?edit=<?php echo $Students['id'] ?>"

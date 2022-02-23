@@ -43,9 +43,9 @@
                     <hr class="m-auto" style="width: 100%;">
                 </div>
 
-                <div style="overflow-y: scroll; overflow-x: hidden">
+                
 
-                    <div style="height:70vh;" class="row mt-2 px-5 table-responsive">
+                    <div style="height:70vh;" class="row mt-2 px-5 table-responsive overflow-scroll">
                         <table class="table">
                             
                         <thead>
@@ -55,26 +55,23 @@
                                     <th scope="col">Phone</th>
                                     <th scope="col">Enroll number</th>
                                     <th scope="col">Date of admission</th>
-                                    <th scope="col">Age</th>
-                                    <th scope="col"></th>
                                 </tr>
                             </thead>
 
                             <tbody>
-                                <?php $results = mysqli_query($config, "SELECT id, name, email, phone, enroll_number, date_of_admission, age from students order by id DESC;"); 
+                                <?php $results = mysqli_query($config, "SELECT id, name, email, phone, enroll_number, date_of_admission from students order by id DESC;"); 
                         while($Students = mysqli_fetch_array($results)) {?>
                                 <tr class=" bg-white  mb-3 align-middle border-5 border-light ">
-                                    <td><?php echo $Students['name'] ?></td>
-                                    <td><?php echo $Students['email'] ?></td>
-                                    <td><?php echo $Students['phone'] ?></td>
-                                    <td><?php echo $Students['enroll_number'] ?></td>
-                                    <td><?php echo $Students['date_of_admission'] ?></td>
-                                    <td><?php echo $Students['age'] ?></td>
+                                    <td><?php echo $Students['name']; ?></td>
+                                    <td><?php echo $Students['email'] ;?></td>
+                                    <td><?php echo $Students['phone'] ;?></td>
+                                    <td><?php echo $Students['enroll_number']; ?></td>
+                                    <td><?php echo $Students['date_of_admission'] ;?></td>
                                     
                                     <td class="d-flex fs-4 text-info border-0 text-end">
-                                        <a href="editstudents.php?edit=<?php echo $Students['id'] ?>"
+                                        <a href="editstudents.php?edit=<?php echo $Students['id'] ;?>"
                                             class="edit_btn"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                        <a href="deletestudents.php?del=<?php echo $Students['id'] ?>"
+                                        <a href="deletestudents.php?del=<?php echo $Students['id'] ;?>"
                                             class="del_btn"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                     </td>
                                 </tr>
@@ -82,7 +79,7 @@
                             </tbody>
                         </table>
                     </div>
-                </div>
+                    
             </div>
         </div>
         </div>

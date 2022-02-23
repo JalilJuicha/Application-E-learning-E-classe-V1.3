@@ -1,64 +1,70 @@
 <?php 
-session_start();
-if(!empty($_SESSION['email'])){
-   header('location:dashboard.php');
+    session_start();
+    if(!empty($_SESSION['email']))
+    {
+        header('location:dashboard.php');
 
-}
-
-
- include 'configdata/config.php';
-if (isset($_POST['sign_in'])){
-    if(!empty($_POST['email'])){
-        if(!empty($_POST['password'])){
+    }
 
 
+    include 'configdata/config.php';
+    if (isset($_POST['sign_in']))
+    {
+        if(!empty($_POST['email']))
+        {
+            if(!empty($_POST['password']))
+            {
 
-       $email= test_input($_POST['email']);
-       $password= test_input($_POST['password']);
-       $sql_req = "SELECT * FROM `comptes` where email='$email' and password='$password'";
-       $sql_obj = mysqli_query($config, $sql_req);
-       $sql_assoc = mysqli_fetch_array($sql_obj);
-       if($email == $sql_assoc['email']){
-           if($password == $sql_assoc['password']){
+
+
+                $email= test_input($_POST['email']);
+                $password= test_input($_POST['password']);
+                $sql_req = "SELECT * FROM `comptes` where email='$email' and password='$password'";
+                $sql_obj = mysqli_query($config, $sql_req);
+                $sql_assoc = mysqli_fetch_array($sql_obj);
+                    if($email == $sql_assoc['email'])
+                    {
+                           if($password == $sql_assoc['password'])
+                           {
                
-               $_SESSION['email'] = $email;
-               $_SESSION['password'] = $password;
-               $_SESSION['name'] = $sql_assoc['name'];
+                                $_SESSION['email'] = $email;
+                                $_SESSION['password'] = $password;
+                                $_SESSION['name'] = $sql_assoc['name'];
 
-            if(isset($_POST['remember'])){
-                 setcookie('email' ,$email ,time()+3600*24);
-                 setcookie('password' ,$password ,time()+3600*24);
-            }
+                                if(isset($_POST['remember']))
+                                {
+                                    setcookie('email' ,$email ,time()+3600*24);
+                                    setcookie('password' ,$password ,time()+3600*24);
+                                }
               
-                header('location:dashboard.php');
-           }
+                                    header('location:dashboard.php');
+                            }
 
-       }
+                    }
 
 
+            }
         }
-    }
-
-
 
     }
 
 
-function get_cookie($var){
-    if(isset($_COOKIE[$var])){
-        echo $_COOKIE[$var];
-    }
+        function get_cookie($var)
+        {
+            if(isset($_COOKIE[$var]))
+            {
+                echo $_COOKIE[$var];
+            }
+        }
 
-}
 
-
-function test_input($data) {
-    $result = trim($data);//delet spaces 
-    $result = stripslashes($data);//delete backslash
-    $result = htmlspecialchars($data);// read html code ... convert html to string
-    return $result;
-  }
-
+        function test_input($data) 
+        {
+            $result = trim($data);//delet spaces 
+            $result = stripslashes($data);//delete backslash
+            $result = htmlspecialchars($data);// read html code ... convert html to string
+            return $result;
+        }
 ?>
 
 <!DOCTYPE html>

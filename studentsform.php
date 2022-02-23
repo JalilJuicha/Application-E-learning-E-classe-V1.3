@@ -60,12 +60,7 @@
                                 class="w-100 rounded-3 border p-2 bg-transparent form-control">
                         </div>
 
-                        <div class=" d-flex flex-column text-muted mt-3 text">
-                            <label for="age">Age</label>
-                            <input type="number" id="age" name="age"
-                                placeholder="Enter the Age"
-                                class="w-100 rounded-3 border p-2 bg-transparent form-control">
-                        </div>
+                    
 
                         <div class="mt-3">
                             <button type="Submit"
